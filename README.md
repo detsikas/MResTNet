@@ -32,6 +32,5 @@ python -m segm.eval.miou output_directory/checkpoint.pth cityscapes --save-image
 
 ## Copyright notice
 The training and evaluation pipelines (not the model) are largely based on the following work
-https://github.com/rstrudel/segmenter?tab=MIT-1-ov-file
-
+https://github.com/rstrudel/segmenter
 
