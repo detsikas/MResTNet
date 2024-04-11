@@ -20,7 +20,7 @@ The architecture is trained and evaluated in the Cityscapes and the ADE20K datas
 The model can be trained with various arguments and configuration combinations. The followg is a typical command for training the model with the Cityscapes dataset
 
 ```python
-python -m segm.train --log-dir output_directory --dataset cityscapes --backbone vit_tiny_patch16_384 --decoder mask_transformer
+python -m segm.train --log-dir output_directory --dataset cityscapes --backbone vit_tiny_patch16_384 --decoder mask_transformer --pretrained-params-file pretrained_models/Ti_16-i21k-300ep-lr_0.001-aug_none-wd_0.03-do_0.0-sd_0.0--imagenet2012-steps_20k-lr_0.03-res_384.npz
 ```
 
 ## MIoU evaluation
