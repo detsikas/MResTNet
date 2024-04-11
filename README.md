@@ -6,7 +6,7 @@ The MResTNet architecture is a deep learning network that achieves state of the 
 The architecture is described in detail in the paper ```"MResTNet: A Multi-resolution Transformer framework with CNN extensions for Semantic Segmentation"``` by ```Nikolaos Detsikas , Nikolaos Mitianoudis and Ioannis Pratikakis (Electrical and Computer Engineering Department, Democritus University of Thrace, University Campus Xanthi-Kimmeria, Xanthi 67100, Greece)```.
 
 ## Code structure
-The code consists of 4 directories. 
+The code consists of the following directories. 
 
 | Directory | Description |
 | --------- | ----------- |
