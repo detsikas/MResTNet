@@ -49,6 +49,7 @@ class Transformer(torch.nn.Module):
                                         dimensionality=model_dimensionality, with_dropout=True, activation='relu')
 
         self.scaler = Scaler(in_channels=3)
+        self.scaler_activation = torch.nn.Sigmoid()
 
         self.unet_norm = torch.nn.LayerNorm(number_of_classes)
         self.fuser = Fuser(number_of_classes=number_of_classes)
@@ -57,6 +58,8 @@ class Transformer(torch.nn.Module):
         scale = self.scaler(inputs)
         scale = torch.nn.functional.interpolate(
             scale, scale_factor=self.patch_size, mode="bilinear")
+        scale = self.scaler_activation(scale)
+
         x = self.patch_embedding(inputs)
 
         # The x shape is now (batch, sequence length h*w/(patch_size*patch_size), model dimensionality)
@@ -80,8 +83,8 @@ class Transformer(torch.nn.Module):
 
         xu = self.unet_decoder(x)
 
-        # xu *= scale
-        # xt *= (1-scale)
+        xu *= scale
+        xt *= (1-scale)
         # xu = self.unet_norm(xu)
 
         masks = torch.cat((xt, xu), 1)
